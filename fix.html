@@ -1,0 +1,254 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Moran Hs School - Online Admission
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://clg-demo.vercel.app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <!-- Open Graph (OG) Tags -->
+  <meta content="Moran Hs School - Online Admission" property="og:title"/>
+  <meta content="Apply online for admission to Moran Higher Secondary School" property="og:description"/>
+  <meta content="https://clg-demo.vercel.app/favicon-32x32.png" property="og:image"/>
+  <meta content="https://clg-demo.vercel.app" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <style>
+   @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            background: linear-gradient(90deg, #007BFF, #00ADEF);
+            color: white;
+            font-weight: bold;
+            padding: 5px 0;
+        }
+        .marquee p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 10s linear infinite;
+        }
+        
+        /* Floating Logo */
+        .floating-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards, pulse 2s infinite;
+        }
+        .floating-logo img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        /* Header Styling */
+        .header {
+            background: #1E40AF;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .header p {
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background: white;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 10px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+        }
+        .mobile-menu a:hover {
+            background: #E5E7EB;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px #00f; }
+            50% { box-shadow: 0 0 15px #00f; }
+            100% { box-shadow: 0 0 5px #00f; }
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: white;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+
+        /* Logo Animation */
+        .logo-animation {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+  </style>
+  <script>
+   function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const hamburger = document.getElementById('hamburger');
+            if (menu.style.display === "block") {
+                menu.style.opacity = 0;
+                menu.style.transform = "translateY(-10px)";
+                setTimeout(() => {
+                    menu.style.display = "none";
+                }, 300);
+                hamburger.classList.remove('open');
+            } else {
+                menu.style.display = "block";
+                setTimeout(() => {
+                    menu.style.opacity = 1;
+                    menu.style.transform = "translateY(0)";
+                }, 10);
+                hamburger.classList.add('open');
+            }
+        }
+  </script>
+ </head>
+ <body class="min-h-screen flex flex-col bg-gray-100">
+  <!-- Header -->
+  <header class="header text-white p-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <div class="flex items-center gap-4">
+     <img alt="School Logo" class="h-12 w-12 rounded-full logo-animation" height="48" src="https://i.postimg.cc/L8w6wtVP/Salford-Class.png" width="48"/>
+     <div>
+      <h1 class="text-2xl font-bold">
+       Moran Hs School
+      </h1>
+      <p class="text-sm">
+       মৰাণ উচ্চতৰ মাধ্যমিক বিদ্যালয়
+      </p>
+     </div>
+    </div>
+    <nav class="hidden md:flex space-x-4">
+     <a class="hover:underline" href="#">
+      Home
+     </a>
+     <a class="hover:underline" href="#">
+      About
+     </a>
+     <a class="hover:underline" href="#">
+      Courses
+     </a>
+     <a class="hover:underline" href="#">
+      Contact
+     </a>
+    </nav>
+    <div class="hamburger md:hidden" id="hamburger" onclick="toggleMenu()">
+     <span>
+     </span>
+     <span>
+     </span>
+     <span>
+     </span>
+    </div>
+   </div>
+   <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">
+     Home
+    </a>
+    <a href="index.html">
+     Contact
+    </a>
+   </div>
+  </header>
+  <!-- Marquee Section -->
+  <div class="marquee">
+   <p>
+    📢 Welcome to Moran Higher Secondary School - Online Admission! 📢
+   </p>
+  </div>
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto p-4">
+   <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+    <h2 class="text-2xl font-bold mb-4">
+     Its under development 🧑‍💻
+    
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white p-4">
+   <div class="container mx-auto text-center">
+    <p>
+     Admission will be available soon🔜
+     
+    </p>
+   </div>
+  </footer>
+ </body>
+</html>
